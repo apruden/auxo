@@ -1,0 +1,12 @@
+<jboss-deployment-structure>
+	<deployment>
+		<exclusions>
+			<module name="org.hibernate" />
+		</exclusions>
+		<dependencies>
+			<!-- <module name="org.hibernate" slot="ogm" services="export" /> -->
+			<module name="org.infinispan" />
+			<module name="org.infinispan.commons" />
+		</dependencies>
+	</deployment>
+</jboss-deployment-structure>

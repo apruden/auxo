@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<infinispan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:infinispan:config:6.0 http://www.infinispan.org/schemas/infinispan-config-6.0.xsd"
+	xmlns="urn:infinispan:config:6.0">
+	<global>
+		<globalJmxStatistics enabled="true"
+			cacheManagerName="HibernateOGM" allowDuplicateDomains="true" />
+		<shutdown hookBehavior="DONT_REGISTER" />
+	</global>
+	<default>
+		<transaction transactionMode="TRANSACTIONAL"
+			transactionManagerLookupClass="org.infinispan.transaction.lookup.JBossTransactionManagerLookup">
+		</transaction>
+		<jmxStatistics enabled="true" />
+		<eviction strategy="NONE" />
+		<expiration wakeUpInterval="-1" reaperEnabled="false" />
+	</default>
+	<namedCache name="ENTITIES">
+	</namedCache>
+	<namedCache name="ASSOCIATIONS">
+	</namedCache>
+	<namedCache name="IDENTIFIERS">
+	</namedCache>
+</infinispan>

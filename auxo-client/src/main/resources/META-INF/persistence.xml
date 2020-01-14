@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	version="1.0">
+	<!-- <persistence-unit name="primary"> <jta-data-source>java:jboss/datasources/ErraiTodoDS</jta-data-source> 
+		<class>org.picketlink.idm.jpa.model.sample.simple.PartitionTypeEntity</class> 
+		<class>org.picketlink.idm.jpa.model.sample.simple.AttributeTypeEntity</class> 
+		<class>org.picketlink.idm.jpa.model.sample.simple.AccountTypeEntity</class> 
+		<class>org.picketlink.idm.jpa.model.sample.simple.RelationshipTypeEntity</class> 
+		<class>org.picketlink.idm.jpa.model.sample.simple.RelationshipIdentityTypeEntity</class> 
+		<class>org.picketlink.idm.jpa.model.sample.simple.PasswordCredentialTypeEntity</class> 
+		<exclude-unlisted-classes>false</exclude-unlisted-classes> <properties> <property 
+		name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" /> <property 
+		name="hibernate.hbm2ddl.auto" value="update" /> <property name="hibernate.show_sql" 
+		value="true" /> </properties> </persistence-unit> -->
+	<persistence-unit name="primary" transaction-type="JTA">
+		<provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>
+		<class>com.monolito.auxo.shared.ShareList</class>
+		<class>com.monolito.auxo.shared.TodoItem</class>
+		<class>com.monolito.auxo.shared.TodoListUser</class>
+		<!-- <class>org.picketlink.idm.jpa.model.sample.simple.PartitionTypeEntity</class>
+		<class>org.picketlink.idm.jpa.model.sample.simple.AttributeTypeEntity</class>
+		<class>org.picketlink.idm.jpa.model.sample.simple.AccountTypeEntity</class>
+		<class>org.picketlink.idm.jpa.model.sample.simple.RelationshipTypeEntity</class>
+		<class>org.picketlink.idm.jpa.model.sample.simple.RelationshipIdentityTypeEntity</class>
+		<class>org.picketlink.idm.jpa.model.sample.simple.PasswordCredentialTypeEntity</class> -->
+		<properties>
+			<property name="hibernate.transaction.jta.platform"
+				value="org.hibernate.service.jta.platform.internal.JBossStandAloneJtaPlatform" />
+			<property name="hibernate.ogm.infinispan.configuration_resourcename"
+				value="infinispan-ogm-config.xml" />
+			<property name="hibernate.search.default.directory_provider"
+				value="infinispan" />
+			<property name="hibernate.search.infinispan.configuration_resourcename"
+				value="infinispan.xml" />
+			<property name="hibernate.ogm.infinispan.cachemanager_jndi_name"
+				value="java:jboss/infinispan/container/HibernateOGM" />
+		</properties>
+	</persistence-unit>
+</persistence>
